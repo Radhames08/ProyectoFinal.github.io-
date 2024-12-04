@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> XML</title>
+</head>
+<body>
+    <h1>Radhames A. Gonzalez 100446113</h1>
+    <h1>¿Qué es XML?</h1>
+    <p>
+        El lenguaje de marcado extensible (XML) permite definir y almacenar datos de forma compartible. 
+        XML admite el intercambio de información entre sistemas de computación, como sitios web, bases de datos 
+        y aplicaciones de terceros. Las reglas predefinidas facilitan la transmisión de datos como archivos XML 
+        a través de cualquier red, ya que el destinatario puede usar esas reglas para leer los datos de forma 
+        precisa y eficiente.
+    </p>
+
+    <h2>Etiquetas XML</h2>
+    <p>
+        Los símbolos de marcado, denominados etiquetas en XML, se utilizan para definir los datos. 
+        Por ejemplo, para representar los datos de una librería, puede crear etiquetas como 
+        <code>&lt;libro&gt;</code>, <code>&lt;título&gt;</code> y <code>&lt;autor&gt;</code>. 
+        El documento XML de un solo libro tendría el siguiente contenido:
+    </p>
+    <pre>
+&lt;libro&gt;
+    &lt;título&gt;Introducción a Amazon Web Services&lt;/título&gt;
+    &lt;autor&gt;Mark Wilkins&lt;/autor&gt;
+&lt;/libro&gt;
+    </pre>
+    <p>
+        Las etiquetas ofrecen una sofisticada codificación de datos para integrar los flujos de información 
+        en diferentes sistemas.
+    </p>
+
+    <h2>Aplicaciones de XML</h2>
+    <p>
+        Puede usar XML para transferir datos entre dos sistemas que almacenan los mismos datos en diferentes formatos. 
+        Por ejemplo, su sitio web almacena las fechas en formato MM/DD/AAAA, pero su sistema de contabilidad almacena 
+        las fechas en formato DD/MM/AAAA. Los desarrolladores pueden escribir código que convierta automáticamente lo siguiente:
+    </p>
+    <ul>
+        <li>Datos del sitio web a formato XML.</li>
+        <li>Datos XML a datos del sistema contable.</li>
+        <li>Los datos del sistema de contabilidad de vuelta a formato XML.</li>
+        <li>Datos XML de vuelta a datos del sitio web.</li>
+    </ul>
+
+    <h2>Elementos XML</h2>
+    <p>
+        Todas las demás etiquetas que cree en un documento XML se denominan elementos XML. 
+        Los elementos XML pueden contener las siguientes características:
+    </p>
+    <ul>
+        <li>Texto.</li>
+        <li>Atributos.</li>
+        <li>Otros elementos.</li>
+    </ul>
+    <p>
+        Todos los documentos XML comienzan con una etiqueta principal, que se denomina elemento raíz. 
+        Por ejemplo, eche un vistazo al archivo XML que aparece a continuación.
+    </p>
+    <pre>
+&lt;ListaInvitación&gt;
+    &lt;familia&gt;
+        &lt;tía&gt;
+            &lt;nombre&gt;Cristina&lt;/nombre&gt;
+            &lt;nombre&gt;Estefanía&lt;/nombre&gt;
+        &lt;/tía&gt;
+    &lt;/familia&gt;
+&lt;/ListaInvitación&gt;
+    </pre>
+    <p>
+        <code>&lt;ListaInvitación&gt;</code> es el elemento raíz; <code>familia</code> y <code>tía</code> son otros nombres de elementos.
+    </p>
+
+    <h2>Atributos XML</h2>
+    <p>
+        Los elementos XML pueden tener otros descriptores denominados atributos. Puede definir sus propios 
+        nombres de atributos y escribir los valores de los atributos entre comillas, como se muestra a continuación.
+    </p>
+    <pre>
+&lt;edad de la persona="22"&gt;
+    </pre>
+
+    <h2>Contenido XML</h2>
+    <p>
+        Los datos de los archivos XML también se denominan contenido XML. Por ejemplo, en el archivo XML, 
+        es posible que veas datos como este.
+    </p>
+    <pre>
+&lt;amigo&gt;
+    &lt;nombre&gt;Carlos&lt;/nombre&gt;
+    &lt;nombre&gt;Esteban&lt;/nombre&gt;
+&lt;/amigo&gt;
+    </pre>
+    <p>Los valores de los datos Carlos y Esteban son el contenido.</p>
+
+    <h2>Esquema XML</h2>
+    <p>
+        Es un documento que describe algunas reglas o límites de la estructura de un archivo XML. Puede describir estas 
+        restricciones de varias maneras diferentes, como las siguientes:
+    </p>
+    <ul>
+        <li>Reglas gramaticales para determinar el orden de los elementos.</li>
+        <li>Condiciones de Sí o No que el contenido debe cumplir.</li>
+        <li>Tipos de datos para el contenido de los archivos XML.</li>
+        <li>Restricciones de integridad de datos.</li>
+    </ul>
+    <p>Por ejemplo, un esquema XML para librerías podría imponer restricciones como las siguientes:</p>
+    <ol>
+        <li>Un elemento de libro tendrá los atributos título y autor.</li>
+        <li>El elemento libro se anidará en un elemento de categoría con un nombre de atributo.</li>
+        <li>El precio de un libro será un elemento independiente anidado en libro.</li>
+    </ol>
+    <pre>
+&lt;nombre de la categoría="Tecnología"&gt;
+    &lt;título del libro="Learning Amazon Web Services", autor="Mark Wilkins"&gt;
+        &lt;precio&gt;20 USD&lt;/precio&gt;
+    &lt;/libro&gt;
+&lt;/categoría&gt;
+    </pre>
+
+    <h2>Analizador XML</h2>
+    <p>
+        Es un software que puede procesar o leer documentos XML para extraer los datos que contienen. Los analizadores también 
+        comprueban la sintaxis o las reglas del archivo XML y pueden validarlo con un esquema XML concreto. 
+        Como este es un lenguaje de marcado estricto, los analizadores no procesarán el archivo si hay algún error de 
+        validación o sintaxis. Por ejemplo, el analizador dará errores si se cumple alguna de estas condiciones:
+    </p>
+    <ul>
+        <li>Falta una etiqueta de cierre o una etiqueta final.</li>
+        <li>Los valores de los atributos no tienen comillas.</li>
+        <li>No se ha cumplido una condición de esquema.</li>
+    </ul>
+
+    <h2>Documentos XML sin hojas de estilo</h2>
+    <img src="imagenes/imagen1.png" alt="Descripción de la imagen">
+</body>
+</html>

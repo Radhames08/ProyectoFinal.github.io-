@@ -1,0 +1,35 @@
+{
+    "productos": [
+      {
+        "id": 1,
+        "nombre": "Laptop",
+        "precio": 1000,
+        "stock": 50
+      },
+      {
+        "id": 2,
+        "nombre": "Smartphone",
+        "precio": 700,
+        "stock": 30
+      },
+      {
+        "id": 3,
+        "nombre": "Tablet",
+        "precio": 500,
+        "stock": 20
+      },
+      {
+        "id": 4,
+        "nombre": "Smartwatch",
+        "precio": 300,
+        "stock": 15
+      },
+      {
+        "id": 5,
+        "nombre": "Auriculares",
+        "precio": 150,
+        "stock": 40
+      }
+    ]
+  }
+  

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR de Contacto</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+</head>
+<body>
+    <div class="qr-container">
+        <h1>Código QR del Contacto</h1>
+        <canvas id="qrCode"></canvas>
+        <button onclick="goBack()">Volver</button>
+    </div>
+
+    <script>
+        function displayQR() {
+            const contactData = localStorage.getItem("contactData");
+            console.log("Datos leídos de localStorage:", contactData); // Verifica en la consola
+
+            if (contactData) {
+                const qr = new QRious({
+                    element: document.getElementById("qrCode"),
+                    size: 200,
+                    value: contactData
+                });
+
+                localStorage.removeItem("contactData"); // Limpiar datos después de generar QR
+            } else {
+                alert("No hay datos de contacto disponibles.");
+                window.location.href = "index.html"; // Redirigir si no hay datos
+            }
+        }
+
+        function goBack() {
+            window.location.href = "index.html";
+        }
+
+        window.onload = displayQR;
+    </script>
+</body>
+</html>

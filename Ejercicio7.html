@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Múltiples Páginas</title>
+    <style>
+        /* Estilos básicos y marca de agua */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Marca de agua */
+        body::before {
+            content: "Formulario Confidencial";
+            position: absolute;
+            font-size: 48px;
+            color: rgba(0, 0, 0, 0.1);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            white-space: nowrap;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #7069af;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #prevBtn {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        #nextBtn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #b80606;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #1d9727;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Página 1: Datos Personales -->
+        <div class="page active" id="page1">
+            <h2>Datos Personales</h2>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required><br><br>
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" required><br><br>
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" required><br><br>
+        </div>
+
+        <!-- Página 2: Familiares -->
+        <div class="page" id="page2">
+            <h2>Familiares</h2>
+            <!-- Repetimos tres veces para los tres familiares -->
+            <div id="familiares">
+                <div>
+                    <label for="familiar1">Familiar 1:</label>
+                    <input type="text" id="familiar1" required><br><br>
+                    <label for="parentesco1">Parentesco:</label>
+                    <input type="text" id="parentesco1" required><br><br>
+                    <label for="edadFamiliar1">Edad:</label>
+                    <input type="number" id="edadFamiliar1" required><br><br>
+                </div>
+                <div>
+                    <label for="familiar2">Familiar 2:</label>
+                    <input type="text" id="familiar2" required><br><br>
+                    <label for="parentesco2">Parentesco:</label>
+                    <input type="text" id="parentesco2" required><br><br>
+                    <label for="edadFamiliar2">Edad:</label>
+                    <input type="number" id="edadFamiliar2" required><br><br>
+                </div>
+                <div>
+                    <label for="familiar3">Familiar 3:</label>
+                    <input type="text" id="familiar3" required><br><br>
+                    <label for="parentesco3">Parentesco:</label>
+                    <input type="text" id="parentesco3" required><br><br>
+                    <label for="edadFamiliar3">Edad:</label>
+                    <input type="number" id="edadFamiliar3" required><br><br>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página 3: Condiciones Pre-Existentes de Salud -->
+        <div class="page" id="page3">
+            <h2>Condiciones Pre-Existentes de Salud</h2>
+            <div id="condiciones">
+                <div>
+                    <label for="enfermedad1">Enfermedad 1:</label>
+                    <input type="text" id="enfermedad1" required><br><br>
+                    <label for="tiempoEnfermedad1">Tiempo con la enfermedad:</label>
+                    <input type="number" id="tiempoEnfermedad1" required><br><br>
+                </div>
+                <div>
+                    <label for="enfermedad2">Enfermedad 2:</label>
+                    <input type="text" id="enfermedad2" required><br><br>
+                    <label for="tiempoEnfermedad2">Tiempo con la enfermedad:</label>
+                    <input type="number" id="tiempoEnfermedad2" required><br><br>
+                </div>
+                <div>
+                    <label for="enfermedad3">Enfermedad 3:</label>
+                    <input type="text" id="enfermedad3" required><br><br>
+                    <label for="tiempoEnfermedad3">Tiempo con la enfermedad:</label>
+                    <input type="number" id="tiempoEnfermedad3" required><br><br>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página 4: Internamientos Realizados -->
+        <div class="page" id="page4">
+            <h2>Internamientos Realizados</h2>
+            <div id="internamientos">
+                <div>
+                    <label for="fechaInternamiento1">Fecha 1:</label>
+                    <input type="date" id="fechaInternamiento1" required><br><br>
+                    <label for="centroMedico1">Centro Médico:</label>
+                    <input type="text" id="centroMedico1" required><br><br>
+                    <label for="diagnostico1">Diagnóstico:</label>
+                    <input type="text" id="diagnostico1" required><br><br>
+                </div>
+                <div>
+                    <label for="fechaInternamiento2">Fecha 2:</label>
+                    <input type="date" id="fechaInternamiento2" required><br><br>
+                    <label for="centroMedico2">Centro Médico:</label>
+                    <input type="text" id="centroMedico2" required><br><br>
+                    <label for="diagnostico2">Diagnóstico:</label>
+                    <input type="text" id="diagnostico2" required><br><br>
+                </div>
+                <div>
+                    <label for="fechaInternamiento3">Fecha 3:</label>
+                    <input type="date" id="fechaInternamiento3" required><br><br>
+                    <label for="centroMedico3">Centro Médico:</label>
+                    <input type="text" id="centroMedico3" required><br><br>
+                    <label for="diagnostico3">Diagnóstico:</label>
+                    <input type="text" id="diagnostico3" required><br><br>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página 5: Resumen -->
+        <div class="page" id="page5">
+            <h2>Resumen de Datos</h2>
+            <div id="tableOutput"></div>
+        </div>
+
+        <!-- Botones de Navegación -->
+        <div class="buttons">
+            <button id="prevBtn" onclick="navigate(-1)" style="display: none;">Anterior</button>
+            <button id="nextBtn" onclick="navigate(1)">Siguiente</button>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 5;
+
+        function navigate(step) {
+            if (step === 1 && !validateForm()) return;
+            document.getElementById(`page${currentPage}`).classList.remove('active');
+            currentPage += step;
+
+            if (currentPage > totalPages) {
+                clearForm();
+                currentPage = 1;
+                document.getElementById(`page${currentPage}`).classList.add('active');
+                document.getElementById("nextBtn").textContent = "Siguiente";
+                document.getElementById("prevBtn").style.display = "none";
+                return;
+            }
+
+            document.getElementById(`page${currentPage}`).classList.add('active');
+            document.getElementById("prevBtn").style.display = currentPage === 1 ? "none" : "inline";
+            document.getElementById("nextBtn").textContent = currentPage === totalPages ? "Enviar" : "Siguiente";
+
+            if (currentPage === totalPages) mostrarResumenEnTabla();
+        }
+
+        function validateForm() {
+            const inputs = document.querySelectorAll(`#page${currentPage} input`);
+            for (const input of inputs) {
+                if (!input.value) {
+                    alert("Por favor, completa todos los campos.");
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function clearForm() {
+            const inputs = document.querySelectorAll("input");
+            inputs.forEach(input => input.value = "");
+            document.getElementById("tableOutput").innerHTML = "";
+        }
+
+        function mostrarResumenEnTabla() {
+            const datosPersonales = {
+                nombre: document.getElementById("nombre").value,
+                edad: document.getElementById("edad").value,
+                direccion: document.getElementById("direccion").value
+            };
+
+            const familiares = [
+                { nombre: document.getElementById("familiar1").value, parentesco: document.getElementById("parentesco1").value, edad: document.getElementById("edadFamiliar1").value },
+                { nombre: document.getElementById("familiar2").value, parentesco: document.getElementById("parentesco2").value, edad: document.getElementById("edadFamiliar2").value },
+                { nombre: document.getElementById("familiar3").value, parentesco: document.getElementById("parentesco3").value, edad: document.getElementById("edadFamiliar3").value }
+            ];
+
+            const condicionesPreExistentes = [
+                { enfermedad: document.getElementById("enfermedad1").value, tiempo: document.getElementById("tiempoEnfermedad1").value },
+                { enfermedad: document.getElementById("enfermedad2").value, tiempo: document.getElementById("tiempoEnfermedad2").value },
+                { enfermedad: document.getElementById("enfermedad3").value, tiempo: document.getElementById("tiempoEnfermedad3").value }
+            ];
+
+            const internamientos = [
+                { fecha: document.getElementById("fechaInternamiento1").value, centroMedico: document.getElementById("centroMedico1").value, diagnostico: document.getElementById("diagnostico1").value },
+                { fecha: document.getElementById("fechaInternamiento2").value, centroMedico: document.getElementById("centroMedico2").value, diagnostico: document.getElementById("diagnostico2").value },
+                { fecha: document.getElementById("fechaInternamiento3").value, centroMedico: document.getElementById("centroMedico3").value, diagnostico: document.getElementById("diagnostico3").value }
+            ];
+
+            let tableHTML = `
+                <table>
+                    <tr><th colspan="2">Datos Personales</th></tr>
+                    <tr><td>Nombre</td><td>${datosPersonales.nombre}</td></tr>
+                    <tr><td>Edad</td><td>${datosPersonales.edad}</td></tr>
+                    <tr><td>Dirección</td><td>${datosPersonales.direccion}</td></tr>
+                    <tr><th colspan="3">Familiares</th></tr>
+                    <tr><td>Nombre</td><td>Parentesco</td><td>Edad</td></tr>`;
+            familiares.forEach(familiar => {
+                tableHTML += `<tr><td>${familiar.nombre}</td><td>${familiar.parentesco}</td><td>${familiar.edad}</td></tr>`;
+            });
+
+            tableHTML += `<tr><th colspan="3">Condiciones Pre-Existentes</th></tr><tr><td>Enfermedad</td><td colspan="2">Tiempo (años)</td></tr>`;
+            condicionesPreExistentes.forEach(condicion => {
+                tableHTML += `<tr><td>${condicion.enfermedad}</td><td colspan="2">${condicion.tiempo}</td></tr>`;
+            });
+
+            tableHTML += `<tr><th colspan="3">Internamientos</th></tr><tr><td>Fecha</td><td>Centro Médico</td><td>Diagnóstico</td></tr>`;
+            internamientos.forEach(internamiento => {
+                tableHTML += `<tr><td>${internamiento.fecha}</td><td>${internamiento.centroMedico}</td><td>${internamiento.diagnostico}</td></tr>`;
+            });
+            tableHTML += `</table>`;
+
+            document.getElementById("tableOutput").innerHTML = tableHTML;
+        }
+    </script>
+</body>
+</html>
